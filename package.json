@@ -1,0 +1,35 @@
+{
+  "name": "regen-icons",
+  "version": "1.0.0",
+  "description": "Svg based react icon components based on the Regen1 library",
+  "keywords": [
+    "React",
+    "Icons",
+    "Svgs",
+    "Svg",
+    "Regen1"
+  ],
+  "module": "dist/bundle.js",
+  "repository": "git@github.com:mgavillo/regen-icons.git",
+  "author": "mgavillo <marie.gavillon@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rm -rf ./src && rm -rf ./dist",
+    "svgr": "svgr --icon --memo --typescript --replace-attr-values '#000=props.color' -d src assets",
+    "build": "yarn run svgr && rollup -c --bundleConfigAsCjs"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-react": "^7.18.6",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@svgr/cli": "^7.0.0",
+    "rollup": "^3.20.2",
+    "rollup-plugin-filesize": "^10.0.0"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
+  }
+}
